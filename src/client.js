@@ -153,6 +153,16 @@ window.__ModuleLoader__.load({
       'background:var(--dsw-alias-bg-primary,transparent);box-sizing:border-box}',
       '.dsd-title{font-size:14px;color:var(--dsw-alias-label-primary)}',
       '.dsd-sub{font-size:12px;line-height:1.5;color:var(--dsw-alias-label-tertiary)}',
+      '.dsd-setting{display:flex;align-items:flex-start;gap:12px;padding:2px 0}',
+      '.dsd-setting-text{display:flex;flex-direction:column;gap:2px;min-width:0}',
+      '.dsd-setting-title{font-size:13px;line-height:20px;color:var(--dsw-alias-label-primary)}',
+      '.dsd-setting-desc{font-size:12px;line-height:18px;color:var(--dsw-alias-label-tertiary)}',
+      '.dsd-switch{position:relative;flex:none;width:38px;height:22px;margin-left:auto;border:0;border-radius:11px;padding:0;cursor:pointer;background:rgba(127,127,127,.4);transition:background .12s ease}',
+      '.dsd-switch[aria-checked="true"]{background:#4c8dff}',
+      '.dsd-switch::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .15s ease}',
+      '.dsd-switch[aria-checked="true"]::after{left:18px}',
+      '.dsd-switch:focus-visible{outline:2px solid rgba(76,141,255,.45);outline-offset:2px}',
+      '@media (prefers-reduced-motion:reduce){.dsd-switch,.dsd-switch::after{transition:none}}',
       '.dsd-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}',
       '.dsd-btn{font:inherit;font-size:13px;line-height:20px;padding:6px 14px;cursor:pointer;',
       'border-radius:var(--dsw-radius-md,8px);border:1px solid var(--dsw-alias-border-secondary,rgba(128,128,128,.3));',
@@ -206,29 +216,36 @@ window.__ModuleLoader__.load({
         return h('span', { className: 'dsd-note' }, flagsSummary(flags))
       }
 
-      const row = (key, title, hint) =>
-        h(
-          'label',
-          { key, className: 'dsd-option', 'data-selected': flags[key] === true ? 'true' : undefined },
-          h('input', {
-            type: 'checkbox',
-            checked: flags[key] === true,
-            onChange: (event) => writeFlags({ ...flags, [key]: event.target.checked === true }),
-          }),
+      // One switch per row: the copy on the left, the control on the right. Same
+      // shape the session components use, so the three settings pages read alike.
+      const row = (key, title, hint) => {
+        const on = flags[key] === true
+        return h(
+          'div',
+          { key, className: 'dsd-setting' },
           h(
-            'span',
-            { className: 'dsd-optionText' },
-            h('span', { className: 'dsd-optionTitle' }, title),
-            h('span', { className: 'dsd-optionHint' }, hint),
+            'div',
+            { className: 'dsd-setting-text' },
+            h('div', { className: 'dsd-setting-title' }, title),
+            h('div', { className: 'dsd-setting-desc' }, hint),
           ),
+          h('button', {
+            type: 'button',
+            role: 'switch',
+            className: 'dsd-switch',
+            'aria-checked': on ? 'true' : 'false',
+            'aria-label': title,
+            onClick: () => writeFlags({ ...flags, [key]: !on }),
+          }),
         )
+      }
 
       return h(
         'div',
         { className: 'dsd-form' },
         h(
           'fieldset',
-          { className: 'dsd-choice', 'aria-label': '侧栏账号入口的交互' },
+          { className: 'dsd-choice', 'aria-label': '侧栏设置入口的交互' },
           row(
             FLAG_HOVER,
             '悬浮展开菜单',
