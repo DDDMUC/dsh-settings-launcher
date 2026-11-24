@@ -832,6 +832,11 @@ window.__ModuleLoader__.load({
 
     return {
       inject: ['slots', 'remote.account'],
+      // The switches are also readable from outside this bundle: the aggregator
+      // that vendors this file renders the same card (never a copy) and injects
+      // the same stylesheet, so the two surfaces cannot drift.
+      __settings: { SwitchCard },
+      __ui: { pluginId: NS, css: () => CSS },
       apply(ctx) {
         // ctx.effect 要的是一个 cleanup 函数；ensureStyle() 返回的是 <style>
         // 元素，直接返回会让 Cordis 在激活时拿到非函数值而把 fiber 判为 failed。
