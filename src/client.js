@@ -174,16 +174,7 @@ window.__ModuleLoader__.load({
       '.dsd-note{font-size:12px;line-height:1.5;color:var(--dsw-alias-label-tertiary)}',
       // The plugin page's form: two independent rows, each its own checkbox.
       '.dsd-form{display:flex;flex-direction:column;gap:8px}',
-      '.dsd-choice{display:flex;flex-direction:column;gap:10px}',
-      '.dsd-option{display:flex;align-items:flex-start;gap:10px;cursor:pointer;',
-      'border:1px solid var(--dsw-alias-border-secondary,rgba(128,128,128,.18));',
-      'border-radius:var(--dsw-radius-md,8px);padding:10px 12px;background:transparent}',
-      '.dsd-option[data-selected=true]{border-color:var(--dsw-alias-state-business-primary,#4a6cf7);',
-      'background:var(--dsw-alias-interactive-bg-hover)}',
-      '.dsd-option input{margin:2px 0 0;flex:none}',
-      '.dsd-optionText{display:flex;flex-direction:column;gap:2px;min-width:0}',
-      '.dsd-optionTitle{font-size:13px;color:var(--dsw-alias-label-primary)}',
-      '.dsd-optionHint{font-size:12px;line-height:1.5;color:var(--dsw-alias-label-tertiary)}',
+      '.dsd-choice{display:flex;flex-direction:column;gap:10px;border:0;margin:0;padding:0}',
     ].join('')
 
     function ensureStyle() {
@@ -244,8 +235,8 @@ window.__ModuleLoader__.load({
         'div',
         { className: 'dsd-form' },
         h(
-          'fieldset',
-          { className: 'dsd-choice', 'aria-label': '侧栏设置入口的交互' },
+          'div',
+          { className: 'dsd-choice', role: 'group', 'aria-label': '侧栏设置入口的交互' },
           row(
             FLAG_HOVER,
             '悬浮展开菜单',
