@@ -613,7 +613,7 @@ window.__ModuleLoader__.load({
       if (flags.direct && openSettings === null) {
         console.warn(
           '[dsh-settings-launcher] 拿不到 shortcuts 服务的 registry.invoke，' +
-            '「点击进设置」这次不生效，账号入口保持官方行为。',
+            '「点击进设置」这次不生效，设置入口保持官方行为。',
         )
       }
 
