@@ -218,7 +218,7 @@ window.__ModuleLoader__.load({
             'div',
             { className: 'dsd-setting-text' },
             h('div', { className: 'dsd-setting-title' }, title),
-            h('div', { className: 'dsd-setting-desc' }, hint),
+            hint === '' || hint === undefined ? null : h('div', { className: 'dsd-setting-desc' }, hint),
           ),
           h('button', {
             type: 'button',
@@ -240,12 +240,12 @@ window.__ModuleLoader__.load({
           row(
             FLAG_HOVER,
             '悬浮展开菜单',
-            '指针移入即展开原版菜单（设置 / 意见反馈 / 退出登录），移出收起；点击可固定。',
+            '',
           ),
           row(
             FLAG_DIRECT,
             '点击进设置',
-            '点击直达设置面板；「账号与余额」页同时追加意见反馈与登录/退出登录两张卡片（与菜单内容重复，属预期）。',
+            '',
           ),
           h('span', { className: 'dsd-note' }, flagsSummary(flags)),
         ),
