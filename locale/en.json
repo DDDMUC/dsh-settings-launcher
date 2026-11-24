@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Settings entry",
+    "description": "Two independent switches for the sidebar account row: hover opens the shipped menu, and a click opens Settings directly. Either, both, or neither; neither leaves the shipped behaviour."
+  }
+}
