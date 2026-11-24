@@ -1,7 +1,7 @@
 {
   "name": "dsh-settings-launcher",
-  "version": "0.0.2",
-  "description": "侧栏账号入口的两个独立开关：悬浮自动展开原版菜单、点击直达设置；可单选也可全开，全关即官方原样。",
+  "version": "0.0.3",
+  "description": "侧栏设置入口的两个独立开关：悬浮自动展开原版菜单、点击直达设置；可单选也可全开，全关即官方原样。",
   "type": "module",
   "main": "src/index.js",
   "exports": {
