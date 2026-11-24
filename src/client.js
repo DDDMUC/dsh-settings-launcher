@@ -171,7 +171,7 @@ window.__ModuleLoader__.load({
       '.dsd-btn:disabled{opacity:.5;cursor:default}',
       '.dsd-btn[data-tone=danger]{color:var(--dsw-alias-state-error-primary,#e5484d);',
       'border-color:var(--dsw-alias-state-error-primary,#e5484d)}',
-      '.dsd-note{font-size:12px;line-height:1.5;color:var(--dsw-alias-label-tertiary)}',
+      '.dsd-note{font-size:12px;line-height:1.5;color:var(--dsw-alias-label-primary,#111)}',
       // The plugin page's form: two independent rows, each its own checkbox.
       '.dsd-form{display:flex;flex-direction:column;gap:8px}',
       '.dsd-choice{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 28px;border:0;margin:0;padding:0}',
