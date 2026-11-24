@@ -153,9 +153,9 @@ window.__ModuleLoader__.load({
       'background:var(--dsw-alias-bg-primary,transparent);box-sizing:border-box}',
       '.dsd-title{font-size:14px;color:var(--dsw-alias-label-primary)}',
       '.dsd-sub{font-size:12px;line-height:1.5;color:var(--dsw-alias-label-tertiary)}',
-      '.dsd-setting{display:flex;align-items:flex-start;gap:16px;padding:12px 0;width:100%}',
-      '.dsd-setting-text{flex:1;min-width:0}',
-      '.dsd-setting-title{font-size:13px;font-weight:600;line-height:20px}',
+      '.dsd-setting{display:inline-flex;align-items:center;gap:10px;padding:4px 0;width:auto}',
+      '.dsd-setting-text{flex:0 0 auto;min-width:0}',
+      '.dsd-setting-title{font-size:13px;font-weight:600;line-height:20px;white-space:nowrap}',
       '.dsd-setting-desc{font-size:12px;line-height:18px;opacity:.7;margin-top:2px}',
       '.dsd-switch{position:relative;flex:none;width:38px;height:22px;margin-left:auto;border:0;border-radius:11px;padding:0;cursor:pointer;background:rgba(127,127,127,.4);transition:background .12s ease}',
       '.dsd-switch[aria-checked="true"]{background:#4c8dff}',
@@ -174,7 +174,7 @@ window.__ModuleLoader__.load({
       '.dsd-note{font-size:12px;line-height:1.5;color:var(--dsw-alias-label-tertiary)}',
       // The plugin page's form: two independent rows, each its own checkbox.
       '.dsd-form{display:flex;flex-direction:column;gap:8px}',
-      '.dsd-choice{display:flex;flex-direction:column;gap:10px;border:0;margin:0;padding:0}',
+      '.dsd-choice{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 28px;border:0;margin:0;padding:0}',
     ].join('')
 
     function ensureStyle() {
